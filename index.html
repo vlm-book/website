@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vision-Language Models &mdash; Building VLMs with Hugging Face</title>
+
+  <!-- SEO -->
+  <meta name="description" content="The practical guide to building, training, and deploying vision-language models. By Miquel Farr&eacute;, Merve Noyan, Andi Marafioti &amp; Orr Zohar. Published by O'Reilly Media.">
+  <meta property="og:title" content="Vision-Language Models Book">
+  <meta property="og:description" content="The practical guide to building, training, and deploying vision-language models.">
+  <meta property="og:image" content="https://vlmbook.com/images/book_cover.png">
+  <meta property="og:url" content="https://vlmbook.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://vlmbook.com/images/book_cover.png">
+  <meta property="twitter:title" content="Vision-Language Models Book">
+
+  <link rel="canonical" href="https://vlmbook.com/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "Vision-Language Models",
+    "url": "https://vlmbook.com/",
+    "image": "https://vlmbook.com/images/book_cover.png",
+    "author": [
+      {"@type": "Person", "name": "Miquel Farr\u00e9"},
+      {"@type": "Person", "name": "Merve Noyan"},
+      {"@type": "Person", "name": "Andi Marafioti"},
+      {"@type": "Person", "name": "Orr Zohar"}
+    ],
+    "publisher": {"@type": "Organization", "name": "O'Reilly Media"},
+    "bookFormat": "EBook",
+    "isbn": "9798341624030"
+  }
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+
+  <!-- ====== Header ====== -->
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/">Vision-Language Models</a>
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#chapters">Chapters</a>
+        <a href="#authors">Authors</a>
+        <a href="https://huggingface.co/vlmbook" target="_blank">Code&nbsp;<i class="fas fa-external-link-alt" style="font-size:10px"></i></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== Hero ====== -->
+  <section class="hero">
+    <div class="wrapper">
+      <div class="hero-inner">
+        <img class="hero-cover" src="images/book_cover.png" alt="Vision-Language Models book cover">
+        <div class="hero-content">
+          <h1>Vision-Language Models</h1>
+          <p class="hero-subtitle">Building VLMs with Hugging Face</p>
+          <p class="hero-authors">
+            By <a href="https://www.linkedin.com/in/merve-noyan-28b1a113a/" target="_blank">Merve Noyan</a>,
+            <a href="https://www.linkedin.com/in/miquelangelfarre/" target="_blank">Miquel Farr&eacute;</a>,
+            <a href="https://www.linkedin.com/in/andimarafioti/" target="_blank">Andr&eacute;s Marafioti</a>
+            &amp; <a href="https://www.linkedin.com/in/orr-zohar/" target="_blank">Orr Zohar</a>
+          </p>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="https://learning.oreilly.com/library/view/vision-language-models/9798341624030/" target="_blank">
+              <i class="fas fa-book-open"></i> Read on O'Reilly
+            </a>
+            <a class="btn" href="https://huggingface.co/vlmbook" target="_blank">
+              <i class="fas fa-code"></i> Code &amp; Notebooks
+            </a>
+          </div>
+          <p class="hero-print-notice">The print edition arrives <strong>end of July 2025</strong> &mdash;
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScDBcqrwQbjh9UaWluZMsYZ8Te25nSf663jFVIHjA8nIea2qA/viewform?usp=header" target="_blank">get notified when it's out <i class="fas fa-bell"></i></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== About ====== -->
+  <section id="about">
+    <div class="wrapper">
+      <h2 class="section-title">About the Book</h2>
+      <div class="about-text">
+        <p>Today, you can take your phone out in a museum, snap a picture of a painting, and ask a model about the influences the artist drew on and what the piece might be trying to convey. The same model can watch the videos on your phone and give you quick summaries to help you find them later. Vision-language models make all of this possible by connecting visual perception and language. They have moved quickly from research prototypes to real products that people use every day.</p>
+        <p>But building new things with these models is harder than the user experience suggests. The field moves fast, new papers come out daily, and practical guidance is scattered across blog posts, library docs, and informal knowledge passed around at networking events. If you want to use, train, or fine-tune a VLM, it is not obvious how to choose the right architecture, how to curate your datasets, or how to deploy efficiently.</p>
+        <p>This book is our attempt to change that. It is the book we wished we had when multimodal work stopped being a research curiosity and became an engineering problem. We wrote it as a team that has spent years building, documenting, and shipping open-source multimodal systems at Hugging Face. We lead with code and concrete examples, and we use theory to explain why things work (or don't) rather than to impress.</p>
+      </div>
+
+      <!-- Audience cards -->
+      <div class="audience-grid">
+        <div class="audience-card">
+          <span class="card-icon"><i class="fas fa-cogs"></i></span>
+          <h3>ML Engineers</h3>
+          <p>Train, fine-tune, and deploy vision-language models in production with hands-on PyTorch and Hugging Face examples.</p>
+        </div>
+        <div class="audience-card">
+          <span class="card-icon"><i class="fas fa-flask"></i></span>
+          <h3>Researchers</h3>
+          <p>Understand core architectures, read VLM papers critically, and reason about design decisions in multimodal systems.</p>
+        </div>
+        <div class="audience-card">
+          <span class="card-icon"><i class="fas fa-rocket"></i></span>
+          <h3>Builders</h3>
+          <p>Go from API users to system designers &mdash; learn what is happening under the hood and build your own multimodal applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Chapters ====== -->
+  <section id="chapters">
+    <div class="wrapper">
+      <h2 class="section-title">What's Inside</h2>
+      <ol class="chapters-list">
+        <li>
+          <span class="chapter-number">1</span>
+          <div class="chapter-info">
+            <h3>Introduction to Vision and Language</h3>
+            <p>Traces the ideas that led to modern vision-language models and shows how images and text came to be modeled together.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">2</span>
+          <div class="chapter-info">
+            <h3>Vision-Language Model Applications</h3>
+            <p>Surveys captioning, visual question answering, reasoning, retrieval, document understanding, video understanding, and localization tasks.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">3</span>
+          <div class="chapter-info">
+            <h3>Vision-Language Model Training</h3>
+            <p>Walks through training a small VLM from scratch &mdash; batching, packing, and how images and text are represented during training.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">4</span>
+          <div class="chapter-info">
+            <h3>Training Data and Preprocessing for VLMs</h3>
+            <p>Moves from toy examples to real-world scale: sourcing, filtering, annotating, mixing, and packaging multimodal datasets.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">5</span>
+          <div class="chapter-info">
+            <h3>Post-Training Vision-Language Models</h3>
+            <p>Covers supervised fine-tuning, parameter-efficient adaptation, quantization-aware workflows, and alignment techniques.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">6</span>
+          <div class="chapter-info">
+            <h3>Core Architectures of Vision-Language Models</h3>
+            <p>Opens the model up &mdash; examines multimodal attention, fusion patterns, and modern VLM design blueprints.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">7</span>
+          <div class="chapter-info">
+            <h3>Deploying Models for Inference at Scale</h3>
+            <p>Profiling, KV-cache behavior, attention optimizations, quantization, export, and serving frameworks.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">8</span>
+          <div class="chapter-info">
+            <h3>Document AI</h3>
+            <p>How multimodal models handle OCR, document question answering, parsing, retrieval, and document-centric workflows.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">9</span>
+          <div class="chapter-info">
+            <h3>Video-Language Models</h3>
+            <p>Temporal modeling, video retrieval, Video-RAG, and practical fine-tuning considerations for video understanding.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">10</span>
+          <div class="chapter-info">
+            <h3>Any-to-Any Models</h3>
+            <p>Unified multimodal systems that understand and generate across text, images, audio, and video.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chapter-number">11</span>
+          <div class="chapter-info">
+            <h3>Advanced Topics and Cutting-Edge Research</h3>
+            <p>Agentic vision-language models and vision-language-action systems that move from passive understanding to decision-making and action.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ====== Authors ====== -->
+  <section id="authors">
+    <div class="wrapper">
+      <h2 class="section-title">Authors</h2>
+      <div class="authors-grid">
+        <div class="author-card">
+          <div class="author-avatar"><img src="images/merve.jpeg" alt="Merve Noyan"></div>
+          <h3>Merve Noyan</h3>
+          <p class="author-role">Hugging Face</p>
+          <div class="author-links">
+            <a href="https://www.linkedin.com/in/merve-noyan-28b1a113a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="author-card">
+          <div class="author-avatar"><img src="images/miquel.jpeg" alt="Miquel Farr&eacute;"></div>
+          <h3>Miquel Farr&eacute;</h3>
+          <p class="author-role">Hugging Face</p>
+          <div class="author-links">
+            <a href="https://www.linkedin.com/in/miquelangelfarre/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="author-card">
+          <div class="author-avatar"><img src="images/andi.jpeg" alt="Andr&eacute;s Marafioti"></div>
+          <h3>Andr&eacute;s Marafioti</h3>
+          <p class="author-role">Hugging Face</p>
+          <div class="author-links">
+            <a href="https://www.linkedin.com/in/andimarafioti/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="author-card">
+          <div class="author-avatar"><img src="images/orr.jpeg" alt="Orr Zohar"></div>
+          <h3>Orr Zohar</h3>
+          <p class="author-role">Hugging Face</p>
+          <div class="author-links">
+            <a href="https://www.linkedin.com/in/orr-zohar/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Contact ====== -->
+  <section id="contact">
+    <div class="wrapper">
+      <h2 class="section-title">Contact</h2>
+      <p>For questions, comments, or requests to interview the authors, please reach out via <a href="https://huggingface.co/vlmbook" target="_blank">our Hugging Face page</a>.</p>
+      <p style="margin-top:8px">To submit errata or report errors, please do so via the <a href="https://learning.oreilly.com/library/view/vision-language-models/9798341624030/" target="_blank">O'Reilly platform</a>.</p>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div class="footer-inner">
+        <span class="footer-text">&copy; 2025 Vision-Language Models. Published by O'Reilly Media.</span>
+        <div class="footer-links">
+          <a href="https://learning.oreilly.com/library/view/vision-language-models/9798341624030/" target="_blank">O'Reilly</a>
+          <a href="https://huggingface.co/vlmbook" target="_blank">Hugging Face</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
